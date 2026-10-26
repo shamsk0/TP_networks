@@ -1,0 +1,28 @@
+graph TD
+    INTERNET((Internet et FAI))
+    subgraph BATA [Batiment A siege et IT]
+        FWA[FW-A]
+        SRV[Serveurs IT]
+        ACCA1[ACC-A-01 voix Wi-Fi A]
+        CCA[CC-A]
+    end
+    subgraph BATB [Batiment B production]
+        SUPERV[Supervision de production]
+        ACCB1[ACC-B-01 OT]
+        ACCB2[ACC-B-02 bureautique B]
+        FWB[FW-B]
+        CCB[CC-B]
+    end
+    INTERNET --- FWA
+    FWA --- CCA
+    SRV --- CCA
+    ACCA1 --- CCA
+    CCA === CCB
+    FWA === FWB
+    FWB --- CCB
+    SUPERV --- ACCB1
+    ACCB1 --- CCB
+    ACCB2 --- CCB
+    ACCA1 -.- CCB
+    ACCB1 -.- CCA
+    ACCB2 -.- CCA

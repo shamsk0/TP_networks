@@ -1,0 +1,19 @@
+graph LR
+    subgraph LOCA [Local technique A, batiment A]
+        CCA[CC-A]
+        UPSA[UPS A]
+    end
+    subgraph LOCB [Local technique B, batiment B]
+        CCB[CC-B]
+        UPSB[UPS B]
+    end
+    NORD[Galerie technique nord]
+    SUD[Facade exterieure sud]
+    CHAMBRE[Chambre de tirage commune sous la cour]
+    UPSA --- CCA
+    UPSB --- CCB
+    CCA ---|fibre 1| NORD
+    CCA ---|fibre 2| SUD
+    NORD --- CHAMBRE
+    SUD --- CHAMBRE
+    CHAMBRE --- CCB
